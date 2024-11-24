@@ -10,7 +10,7 @@ from gtts import gTTS  # install gTTS for text to speech, speech to text functio
 import os             # Operating System ke saath interact karne ke liye ,To play audio files 
 import speech_recognition as spr # install speech recognition for speech to text functionality
 
-from queue import Queue
+from queue import Queue # import queue
 
 # ---------------------------------------------------Language Translator--------------------------------------------------------------
 ''' This python file consist of all functionalities required for the language translator application to work  '''
