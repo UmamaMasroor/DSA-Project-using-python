@@ -9,7 +9,8 @@ import pyperclip as pc # install paperclip ...Clipboard se text copy aur paste k
 from gtts import gTTS  # install gTTS for text to speech, speech to text functionality
 import os             # Operating System ke saath interact karne ke liye ,To play audio files 
 import speech_recognition as spr # install speech recognition for speech to text functionality
-import playsound
+# from playsound import playsound
+
 
 
 from queue import Queue # import queue
@@ -23,6 +24,15 @@ root.title('SpeakEasy')
 root.geometry('1060x660')
 root.maxsize(1060, 660)
 root.minsize(1060, 660)
+root.configure(bg="lightblue") 
+heading = tk.Label(
+    root,
+    text="SpeakEasy",  # Heading text
+    font=("Corbel", 40, "bold"),  # Font style and size
+    bg="lightblue",  # Match the window background
+    fg="darkblue"  # Text color
+)
+heading.pack(pady=20) 
 # Tittle bar icon image used in Tkinter GUI
 title_bar_icon = PhotoImage(file="resources/icons/translation.png") # small image that appear in the titlebar
 root.iconphoto(FALSE,title_bar_icon)
@@ -566,9 +576,9 @@ def speechtotext():
 
 
 # Background Image settings using Tkinter
-img = ImageTk.PhotoImage(Image.open('bg.jpg'))
-label = Label(image=img)
-label.place(x=0, y=0)
+# img = ImageTk.PhotoImage(Image.open('bg.jpg'))
+# label = Label(image=img)
+# label.place(x=0, y=0)
 
 # combobox for from-language selection
 a = tk.StringVar()
@@ -888,7 +898,7 @@ read_aloud = Button(
     command=texttospeech,
     bg="#7aaac2"
 )
-read_aloud.place(x=650, y=565)
+# read_aloud.place(x=650, y=565)
 voice_input = Button(
     root, 
     text=" Voice Input ", 
@@ -901,7 +911,7 @@ voice_input = Button(
     command=speechtotext, 
     bg="#7aaac2"
 )
-voice_input.place(x=850, y=565)
+voice_input.place(x=750, y=565)
 voice_input = Button(
     root, 
     text=" Voice Input ", 
@@ -914,7 +924,7 @@ voice_input = Button(
     command=speechtotext, 
     bg="#7aaac2"
 )
-voice_input.place(x=850, y=565)
+voice_input.place(x=750, y=565)
 
 
 
