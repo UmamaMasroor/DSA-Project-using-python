@@ -9,6 +9,7 @@ import pyperclip as pc # install paperclip ...Clipboard se text copy aur paste k
 from gtts import gTTS  # install gTTS for text to speech, speech to text functionality
 import os             # Operating System ke saath interact karne ke liye ,To play audio files 
 import speech_recognition as spr # install speech recognition for speech to text functionality
+import playsound
 
 
 from queue import Queue # import queue
@@ -888,23 +889,10 @@ read_aloud = Button(
     bg="#7aaac2"
 )
 read_aloud.place(x=650, y=565)
-# voice_input = Button(
-#     root, 
-#     text=" Voice Input ", 
-#     image=voice_input_icon, 
-#     compound="right", 
-#     relief=SOLID,  # Change the border style
 #     borderwidth=3,  # Adjust the border width
-#     font=('Corbel', 20, 'bold'), 
-#     cursor="hand2", 
-#     command=speechtotext, 
-#     bg="#7aaac2"
-# )
-# voice_input.place(x=850, y=565)
-
-voice_translation = Button(
+voice_input = Button(
     root, 
-    text=" Voice Translate", 
+    text=" Voice Input ", 
     image=voice_input_icon, 
     compound="right", 
     relief=SOLID,  # Change the border style
@@ -914,7 +902,21 @@ voice_translation = Button(
     command=speechtotext, 
     bg="#7aaac2"
 )
-voice_translation.place(x=850, y=565)
+voice_input.place(x=850, y=565)
+voice_input = Button(
+    root, 
+    text=" Voice Input ", 
+    image=voice_input_icon, 
+    compound="right", 
+    relief=SOLID,  # Change the border style
+    borderwidth=3,  # Adjust the border width
+    font=('Corbel', 20, 'bold'), 
+    cursor="hand2", 
+    command=speechtotext, 
+    bg="#7aaac2"
+)
+voice_input.place(x=850, y=565)
+
 
 
 root.mainloop()
