@@ -78,296 +78,240 @@ def copy():
 
 
 # For Converting Translated Text to Speech
-# using linked list 
-
-
-language_list = []
-
-# Function to add a language to the linked list
-def add_language(language_name, language_code):
-    language_list.append({"name": language_name, "code": language_code})
-
-# Populate the list with languages
-def populate_languages():
-    languages = [
-        ("English", "en"), ("Afrikaans", "af"), ("Albanian", "sq"), 
-        ("Arabic", "ar"), ("Armenian", "hy"), ("Azerbaijani", "az"),
-        # Add more language mappings here...
-        ("Zulu", "zu")
-    ]
-    for language_name, language_code in languages:
-        add_language(language_name, language_code)
-
-# Function to find a language code
-def find_language_code(language_name):
-    for language in language_list:
-        if language["name"] == language_name:
-            return language["code"]
-    return "en"  # Default to English if not found
-
-# Text-to-Speech function
 def texttospeech():
-    global cl
-    cl = choose_langauge.get()
-    if os.path.exists("text_to_speech.mp3"):
-        os.remove("text_to_speech.mp3")
-    mytext = output
-    language = find_language_code(cl)
+ global cl
+ cl = choose_langauge.get()
+ if os.path.exists("text_to_speech.mp3"):
+  os.remove("text_to_speech.mp3")
+ mytext =output
+ language='en'
+ if cl == 'English':
+     language = 'en'
+ elif cl == 'Afrikaans':
+     language = 'af'
+ elif cl == 'Albanian':
+     language = 'sq'
+ elif cl == 'Arabic':
+     language = 'ar'
+ elif cl == 'Armenian':
+     language = 'hy'
+ elif cl == 'Azerbaijani':
+     language = 'az'
+ elif cl == 'Basque':
+     language = 'eu'
+ elif cl == 'Belarusian':
+     language = 'be'
+ elif cl == 'Bengali':
+     language = 'bn'
+ elif cl == 'Bosnian':
+     language = 'bs'
+ elif cl == 'Bulgarian':
+     language = 'bg'
+ elif cl == 'Catalan':
+     language = 'ca'
+ elif cl == 'Cebuano':
+     language = 'ceb'
+ elif cl == 'Chinese':
+     language = 'zh'
+ elif cl == 'Corsican':
+     language = 'co'
+ elif cl == 'Croatian':
+     language = 'hr'
+ elif cl == 'Czech':
+     language = 'cs'
+ elif cl == 'Danish':
+     language = 'da'
+ elif cl == 'Dutch':
+     language = 'nl'
+ elif cl == 'English':
+     language = 'en'
+ elif cl == 'Esperanto':
+     language = 'eo'
+ elif cl == 'Estonian':
+     language = 'et'
+ elif cl == 'Finnish':
+     language = 'fi'
+ elif cl == 'French':
+     language = 'fr'
+ elif cl == 'Frisian':
+     language = 'fy'
+ elif cl == 'Galician':
+     language = 'gl'
+ elif cl == 'Georgian':
+     language = 'ka'
+ elif cl == 'German':
+     language = 'de'
+ elif cl == 'Greek':
+     language = 'el'
+ elif cl == 'Gujarati':
+     language = 'gu'
+ elif cl == 'Haitian Creole':
+     language = 'ht'
+ elif cl == 'Hausa':
+     language = 'ha'
+ elif cl == 'Hawaiian':
+     language = 'haw'
+ elif cl == 'Hebrew':
+     language = 'he'
+ elif cl == 'Hindi':
+     language = 'hi'
+ elif cl == 'Hmong':
+     language = 'hmn'
+ elif cl == 'Hungarian':
+     language = 'hu'
+ elif cl == 'Icelandic':
+     language = 'is'
+ elif cl == 'Igbo':
+     language = 'ig'
+ elif cl == 'Indonesian':
+     language = 'id'
+ elif cl == 'Irish':
+     language = 'ga'
+ elif cl == 'Italian':
+     language = 'it'
+ elif cl == 'Japanese':
+     language = 'ja'
+ elif cl == 'Javanese':
+     language = 'jv'
+ elif cl == 'Kannada':
+     language = 'kn'
+ elif cl == 'Kazakh':
+     language = 'kk'
+ elif cl == 'Khmer':
+     language = 'km'
+ elif cl == 'Kinyarwanda':
+     language = 'rw'
+ elif cl == 'Korean':
+     language = 'ko'
+ elif cl == 'Kurdish':
+     language = 'ku'
+ elif cl == 'Kyrgyz':
+     language = 'ky'
+ elif cl == 'Lao':
+     language = 'lo'
+ elif cl == 'Latin':
+     language = 'la'
+ elif cl == 'Latvian':
+     language = 'lv'
+ elif cl == 'Lithuanian':
+     language = 'lt'
+ elif cl == 'Luxembourgish':
+     language = 'lb'
+ elif cl == 'Macedonian':
+     language = 'mk'
+ elif cl == 'Malagasy':
+     language = 'mg'
+ elif cl == 'Malay':
+     language = 'ms'
+ elif cl == 'Malayalam':
+     language = 'ml'
+ elif cl == 'Maltese':
+     language = 'mt'
+ elif cl == 'Maori':
+     language = 'mi'
+ elif cl == 'Marathi':
+     language = 'mr'
+ elif cl == 'Mongolian':
+     language = 'mn'
+ elif cl == 'Myanmar':
+     language = 'my'
+ elif cl == 'Nepali':
+     language = 'ne'
+ elif cl == 'Norwegian':
+     language = 'no'
+ elif cl == 'Odia':
+     language = 'or'
+ elif cl == 'Pashto':
+     language = 'ps'
+ elif cl == 'Persian':
+     language = 'fa'
+ elif cl == 'Polish':
+     language = 'pl'
+ elif cl == 'Portuguese':
+     language = 'pt'
+ elif cl == 'Punjabi':
+     language = 'pa'
+ elif cl == 'Romanian':
+     language = 'ro'
+ elif cl == 'Russian':
+     language = 'ru'
+ elif cl == 'Samoan':
+     language = 'sm'
+ elif cl == 'Scots Gaelic':
+     language = 'gd'
+ elif cl == 'Serbian':
+     language = 'sr'
+ elif cl == 'Sesotho':
+     language = 'st'
+ elif cl == 'Shona':
+     language = 'sn'
+ elif cl == 'Sindhi':
+     language = 'sd'
+ elif cl == 'Sinhala':
+     language = 'si'
+ elif cl == 'Slovak':
+     language = 'sk'
+ elif cl == 'Slovenian':
+     language = 'sl'
+ elif cl == 'Somali':
+     language = 'so'
+ elif cl == 'Spanish':
+     language = 'es'
+ elif cl == 'Sundanese':
+     language = 'su'
+ elif cl == 'Swahili':
+     language = 'sw'
+ elif cl == 'Swedish':
+     language = 'sv'
+ elif cl == 'Tajik':
+     language = 'tg'
+ elif cl == 'Tamil':
+     language = 'ta'
+ elif cl == 'Tatar':
+     language = 'tt'
+ elif cl == 'Telugu':
+     language = 'te'
+ elif cl == 'Thai':
+     language = 'th'
+ elif cl == 'Turkish':
+     language = 'tr'
+ elif cl == 'Turkmen':
+     language = 'tk'
+ elif cl == 'Ukrainian':
+     language = 'uk'
+ elif cl == 'Urdu':
+     language = 'ur'
+ elif cl == 'Uyghur':
+     language = 'ug'
+ elif cl == 'Uzbek':
+     language = 'uz'
+ elif cl == 'Vietnamese':
+     language = 'vi'
+ elif cl == 'Welsh':
+     language = 'cy'
+ elif cl == 'Xhosa':
+     language = 'xh'
+ elif cl == 'Yiddish':
+     language = 'yi'
+ elif cl == 'Yoruba':
+     language = 'yo'
+ elif cl == 'Zulu':
+     language = 'zu'
+ else:
+     language == 'en'
+ try:
+     myobj = gTTS(text=mytext, lang=language, slow=False)
+     myobj.save("text_to_speech.mp3")
+     os.system("text_to_speech.mp3")
 
-    try:
-        myobj = gTTS(text=mytext, lang=language, slow=False)
-        myobj.save("text_to_speech.mp3")
-        os.system("text_to_speech.mp3")
-    except ValueError as e:
-        messagebox.showerror(
-            'Language Translator', 
-            f"{cl} is currently not supported for Read Aloud (Text to Speech)"
-        )
-        print(f"An error occurred: {e}")
-    except AssertionError as e:
-        messagebox.showerror(
-            'Language Translator', 
-            "Please enter the data to be translated before using Read Aloud"
-        )
-        print("Error:", e)
-
-# Populate the language list at the start
-populate_languages()
-
-# def texttospeech():
-#  global cl
-#  cl = choose_langauge.get()
-#  if os.path.exists("text_to_speech.mp3"):
-#   os.remove("text_to_speech.mp3")
-#  mytext =output
-#  language='en'
-#  if cl == 'English':
-#      language = 'en'
-#  elif cl == 'Afrikaans':
-#      language = 'af'
-#  elif cl == 'Albanian':
-#      language = 'sq'
-#  elif cl == 'Arabic':
-#      language = 'ar'
-#  elif cl == 'Armenian':
-#      language = 'hy'
-#  elif cl == 'Azerbaijani':
-#      language = 'az'
-#  elif cl == 'Basque':
-#      language = 'eu'
-#  elif cl == 'Belarusian':
-#      language = 'be'
-#  elif cl == 'Bengali':
-#      language = 'bn'
-#  elif cl == 'Bosnian':
-#      language = 'bs'
-#  elif cl == 'Bulgarian':
-#      language = 'bg'
-#  elif cl == 'Catalan':
-#      language = 'ca'
-#  elif cl == 'Cebuano':
-#      language = 'ceb'
-#  elif cl == 'Chinese':
-#      language = 'zh'
-#  elif cl == 'Corsican':
-#      language = 'co'
-#  elif cl == 'Croatian':
-#      language = 'hr'
-#  elif cl == 'Czech':
-#      language = 'cs'
-#  elif cl == 'Danish':
-#      language = 'da'
-#  elif cl == 'Dutch':
-#      language = 'nl'
-#  elif cl == 'English':
-#      language = 'en'
-#  elif cl == 'Esperanto':
-#      language = 'eo'
-#  elif cl == 'Estonian':
-#      language = 'et'
-#  elif cl == 'Finnish':
-#      language = 'fi'
-#  elif cl == 'French':
-#      language = 'fr'
-#  elif cl == 'Frisian':
-#      language = 'fy'
-#  elif cl == 'Galician':
-#      language = 'gl'
-#  elif cl == 'Georgian':
-#      language = 'ka'
-#  elif cl == 'German':
-#      language = 'de'
-#  elif cl == 'Greek':
-#      language = 'el'
-#  elif cl == 'Gujarati':
-#      language = 'gu'
-#  elif cl == 'Haitian Creole':
-#      language = 'ht'
-#  elif cl == 'Hausa':
-#      language = 'ha'
-#  elif cl == 'Hawaiian':
-#      language = 'haw'
-#  elif cl == 'Hebrew':
-#      language = 'he'
-#  elif cl == 'Hindi':
-#      language = 'hi'
-#  elif cl == 'Hmong':
-#      language = 'hmn'
-#  elif cl == 'Hungarian':
-#      language = 'hu'
-#  elif cl == 'Icelandic':
-#      language = 'is'
-#  elif cl == 'Igbo':
-#      language = 'ig'
-#  elif cl == 'Indonesian':
-#      language = 'id'
-#  elif cl == 'Irish':
-#      language = 'ga'
-#  elif cl == 'Italian':
-#      language = 'it'
-#  elif cl == 'Japanese':
-#      language = 'ja'
-#  elif cl == 'Javanese':
-#      language = 'jv'
-#  elif cl == 'Kannada':
-#      language = 'kn'
-#  elif cl == 'Kazakh':
-#      language = 'kk'
-#  elif cl == 'Khmer':
-#      language = 'km'
-#  elif cl == 'Kinyarwanda':
-#      language = 'rw'
-#  elif cl == 'Korean':
-#      language = 'ko'
-#  elif cl == 'Kurdish':
-#      language = 'ku'
-#  elif cl == 'Kyrgyz':
-#      language = 'ky'
-#  elif cl == 'Lao':
-#      language = 'lo'
-#  elif cl == 'Latin':
-#      language = 'la'
-#  elif cl == 'Latvian':
-#      language = 'lv'
-#  elif cl == 'Lithuanian':
-#      language = 'lt'
-#  elif cl == 'Luxembourgish':
-#      language = 'lb'
-#  elif cl == 'Macedonian':
-#      language = 'mk'
-#  elif cl == 'Malagasy':
-#      language = 'mg'
-#  elif cl == 'Malay':
-#      language = 'ms'
-#  elif cl == 'Malayalam':
-#      language = 'ml'
-#  elif cl == 'Maltese':
-#      language = 'mt'
-#  elif cl == 'Maori':
-#      language = 'mi'
-#  elif cl == 'Marathi':
-#      language = 'mr'
-#  elif cl == 'Mongolian':
-#      language = 'mn'
-#  elif cl == 'Myanmar':
-#      language = 'my'
-#  elif cl == 'Nepali':
-#      language = 'ne'
-#  elif cl == 'Norwegian':
-#      language = 'no'
-#  elif cl == 'Odia':
-#      language = 'or'
-#  elif cl == 'Pashto':
-#      language = 'ps'
-#  elif cl == 'Persian':
-#      language = 'fa'
-#  elif cl == 'Polish':
-#      language = 'pl'
-#  elif cl == 'Portuguese':
-#      language = 'pt'
-#  elif cl == 'Punjabi':
-#      language = 'pa'
-#  elif cl == 'Romanian':
-#      language = 'ro'
-#  elif cl == 'Russian':
-#      language = 'ru'
-#  elif cl == 'Samoan':
-#      language = 'sm'
-#  elif cl == 'Scots Gaelic':
-#      language = 'gd'
-#  elif cl == 'Serbian':
-#      language = 'sr'
-#  elif cl == 'Sesotho':
-#      language = 'st'
-#  elif cl == 'Shona':
-#      language = 'sn'
-#  elif cl == 'Sindhi':
-#      language = 'sd'
-#  elif cl == 'Sinhala':
-#      language = 'si'
-#  elif cl == 'Slovak':
-#      language = 'sk'
-#  elif cl == 'Slovenian':
-#      language = 'sl'
-#  elif cl == 'Somali':
-#      language = 'so'
-#  elif cl == 'Spanish':
-#      language = 'es'
-#  elif cl == 'Sundanese':
-#      language = 'su'
-#  elif cl == 'Swahili':
-#      language = 'sw'
-#  elif cl == 'Swedish':
-#      language = 'sv'
-#  elif cl == 'Tajik':
-#      language = 'tg'
-#  elif cl == 'Tamil':
-#      language = 'ta'
-#  elif cl == 'Tatar':
-#      language = 'tt'
-#  elif cl == 'Telugu':
-#      language = 'te'
-#  elif cl == 'Thai':
-#      language = 'th'
-#  elif cl == 'Turkish':
-#      language = 'tr'
-#  elif cl == 'Turkmen':
-#      language = 'tk'
-#  elif cl == 'Ukrainian':
-#      language = 'uk'
-#  elif cl == 'Urdu':
-#      language = 'ur'
-#  elif cl == 'Uyghur':
-#      language = 'ug'
-#  elif cl == 'Uzbek':
-#      language = 'uz'
-#  elif cl == 'Vietnamese':
-#      language = 'vi'
-#  elif cl == 'Welsh':
-#      language = 'cy'
-#  elif cl == 'Xhosa':
-#      language = 'xh'
-#  elif cl == 'Yiddish':
-#      language = 'yi'
-#  elif cl == 'Yoruba':
-#      language = 'yo'
-#  elif cl == 'Zulu':
-#      language = 'zu'
-#  else:
-#      language == 'en'
-#  try:
-#      myobj = gTTS(text=mytext, lang=language, slow=False)
-#      myobj.save("text_to_speech.mp3")
-#      os.system("text_to_speech.mp3")
-
-#  except ValueError as e:
-#      messagebox.showerror('Language Translator', cl+' is currently not supported for Read Aloud (Text to Speech)')
-#      print(f"An error occurred: {e}")
-#      # Handle the error or perform any necessary cleanup actions
-#  except AssertionError as e:
-#      # Handle the "No text to speak" error
-#      messagebox.showerror('Language Translator','Please enter the data to be translated before using Read Aloud')
-#      print("Error:", e)
+ except ValueError as e:
+     messagebox.showerror('Language Translator', cl+' is currently not supported for Read Aloud (Text to Speech)')
+     print(f"An error occurred: {e}")
+     # Handle the error or perform any necessary cleanup actions
+ except AssertionError as e:
+     # Handle the "No text to speak" error
+     messagebox.showerror('Language Translator','Please enter the data to be translated before using Read Aloud')
+     print("Error:", e)
 
 # For converting Speech to Text [ Please Note : Only English is currently supported as from-language in Speech to Text Translation ]
 def speechtotext():
