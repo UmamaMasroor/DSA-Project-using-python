@@ -9,6 +9,7 @@ import pyperclip as pc # install paperclip ...Clipboard se text copy aur paste k
 from gtts import gTTS  # install gTTS for text to speech, speech to text functionality
 import os             # Operating System ke saath interact karne ke liye ,To play audio files 
 import speech_recognition as spr # install speech recognition for speech to text functionality
+import os 
 
 from queue import Queue # import queue
 
