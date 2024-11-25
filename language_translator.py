@@ -833,23 +833,23 @@ t2.place(x=550, y=200)
 
 # Button settings used in Tkinter GUI
 translate_button = Button(root, text=" Translate Text ",image=translate_text_icon, compound="right", relief=RIDGE, borderwidth=0, font=('Corbel', 20, 'bold'), cursor="hand2",
-                command=translate,bg="#ffffff")
-translate_button.place(x=40, y=565)
+                command=translate,bg="#7aaac2")
+translate_button.place(x=50, y=565)
 
 clear_button = Button(root, text=" Clear ",image=clear_text_icon, compound="right", relief=RIDGE, borderwidth=0, font=('Corbel', 20, 'bold'), cursor="hand2",
-               command=clear,bg="#ffffff")
-clear_button.place(x=270, y=565)
+               command=clear,bg="#7aaac2")
+clear_button.place(x=290, y=565)
 
 copy_button = Button(root, text=" Copy ",image=copy_text_icon, compound="right", relief=RIDGE, borderwidth=0, font=('Corbel', 20, 'bold'), cursor="hand2",
-                command=copy,bg="#ffffff")
+                command=copy,bg="#7aaac2")
 copy_button.place(x=485, y=565)
 
 read_aloud = Button(root, text=" Read Aloud ",image=read_aloud_icon, compound="right" ,relief=RIDGE, borderwidth=0, font=('Corbel', 20, 'bold'), cursor="hand2",
-                command=texttospeech,bg="#ffffff")
+                command=texttospeech,bg="#7aaac2")
 read_aloud.place(x=650, y=565)
 
 voice_input = Button(root, text=" Voice Input ", image=voice_input_icon, compound="right", relief=RIDGE, borderwidth=0,
-                     font=('Corbel', 20, 'bold'), cursor="hand2", command=speechtotext, bg="#ffffff")
+                     font=('Corbel', 20, 'bold'), cursor="hand2", command=speechtotext, bg="#7aaac2")
 voice_input.place(x=850, y=565)
 
 root.mainloop()
