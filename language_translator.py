@@ -80,6 +80,60 @@ def copy():
 # For Converting Translated Text to Speech
 # using linked list 
 
+
+language_list = []
+
+# Function to add a language to the linked list
+def add_language(language_name, language_code):
+    language_list.append({"name": language_name, "code": language_code})
+
+# Populate the list with languages
+def populate_languages():
+    languages = [
+        ("English", "en"), ("Afrikaans", "af"), ("Albanian", "sq"), 
+        ("Arabic", "ar"), ("Armenian", "hy"), ("Azerbaijani", "az"),
+        # Add more language mappings here...
+        ("Zulu", "zu")
+    ]
+    for language_name, language_code in languages:
+        add_language(language_name, language_code)
+
+# Function to find a language code
+def find_language_code(language_name):
+    for language in language_list:
+        if language["name"] == language_name:
+            return language["code"]
+    return "en"  # Default to English if not found
+
+# Text-to-Speech function
+def texttospeech():
+    global cl
+    cl = choose_langauge.get()
+    if os.path.exists("text_to_speech.mp3"):
+        os.remove("text_to_speech.mp3")
+    mytext = output
+    language = find_language_code(cl)
+
+    try:
+        myobj = gTTS(text=mytext, lang=language, slow=False)
+        myobj.save("text_to_speech.mp3")
+        os.system("text_to_speech.mp3")
+    except ValueError as e:
+        messagebox.showerror(
+            'Language Translator', 
+            f"{cl} is currently not supported for Read Aloud (Text to Speech)"
+        )
+        print(f"An error occurred: {e}")
+    except AssertionError as e:
+        messagebox.showerror(
+            'Language Translator', 
+            "Please enter the data to be translated before using Read Aloud"
+        )
+        print("Error:", e)
+
+# Populate the language list at the start
+populate_languages()
+
 # def texttospeech():
 #  global cl
 #  cl = choose_langauge.get()
