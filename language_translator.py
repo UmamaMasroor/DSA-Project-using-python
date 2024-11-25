@@ -889,7 +889,6 @@ read_aloud = Button(
     bg="#7aaac2"
 )
 read_aloud.place(x=650, y=565)
-#     borderwidth=3,  # Adjust the border width
 voice_input = Button(
     root, 
     text=" Voice Input ", 
