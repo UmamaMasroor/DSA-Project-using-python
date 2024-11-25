@@ -888,9 +888,23 @@ read_aloud = Button(
     bg="#7aaac2"
 )
 read_aloud.place(x=650, y=565)
-voice_input = Button(
+# voice_input = Button(
+#     root, 
+#     text=" Voice Input ", 
+#     image=voice_input_icon, 
+#     compound="right", 
+#     relief=SOLID,  # Change the border style
+#     borderwidth=3,  # Adjust the border width
+#     font=('Corbel', 20, 'bold'), 
+#     cursor="hand2", 
+#     command=speechtotext, 
+#     bg="#7aaac2"
+# )
+# voice_input.place(x=850, y=565)
+
+voice_translation = Button(
     root, 
-    text=" Voice Input ", 
+    text=" Voice Translate", 
     image=voice_input_icon, 
     compound="right", 
     relief=SOLID,  # Change the border style
@@ -900,7 +914,7 @@ voice_input = Button(
     command=speechtotext, 
     bg="#7aaac2"
 )
-voice_input.place(x=850, y=565)
+voice_translation.place(x=850, y=565)
 
 
 root.mainloop()
