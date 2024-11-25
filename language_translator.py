@@ -9,9 +9,6 @@ import pyperclip as pc # install paperclip ...Clipboard se text copy aur paste k
 from gtts import gTTS  # install gTTS for text to speech, speech to text functionality
 import os             # Operating System ke saath interact karne ke liye ,To play audio files 
 import speech_recognition as spr # install speech recognition for speech to text functionality
-# from playsound import playsound
-
-
 
 from queue import Queue # import queue
 
@@ -30,7 +27,7 @@ heading = tk.Label(
     text="SpeakEasy",  # Heading text
     font=("Corbel", 40, "bold"),  # Font style and size
     bg="lightblue",  # Match the window background
-    fg="darkblue"  # Text color
+    fg="#191970"  # Text color
 )
 heading.pack(pady=20) 
 # Tittle bar icon image used in Tkinter GUI
@@ -45,7 +42,9 @@ from queue import Queue
 #..1....... Initialize the queue
 translation_queue = Queue()
 # Function to handle translation using a queue
+# Function to handle translation using a queue
 def translate():
+    global translation_history  # Make sure to modify the global history list
     # Get user input and target language
     language_1 = t1.get("1.0", "end-1c")
     cl = choose_langauge.get()
@@ -70,6 +69,8 @@ def translate():
             t2.delete(1.0, 'end')  # Clear the output box
             t2.insert('end', translated_text)
 
+            # Add to the translation history
+            translation_history.append((text_to_translate, 'auto-detect', translated_text, target_language))
 
 # For Clearing Textbox Data
 def clear():
@@ -927,6 +928,37 @@ voice_input = Button(
 voice_input.place(x=750, y=565)
 
 
+
+
+# Task Queue for managing speech and translation tasks
+task_queue = Queue()
+translation_history = [] 
+
+def view_history():
+    if not translation_history:
+        messagebox.showinfo("Info", "No translation history available.")
+        return
+    
+    # Create a new window for history
+    history_window = tk.Toplevel(root)
+    history_window.title("History-SpeakEasy")
+    history_window.geometry("600x400")
+    
+    # History Textbox
+    history_text = tk.Text(history_window, wrap=tk.WORD, font=("Arial", 12))
+    history_text.pack(expand=True, fill=tk.BOTH, padx=10, pady=10)
+    
+    # Display history
+    for entry in translation_history:
+        original, input_lang, translated, target_lang = entry
+        history_text.insert(tk.END, f"Original ({input_lang}): {original}\n")
+        history_text.insert(tk.END, f"Translated ({target_lang}): {translated}\n")
+        history_text.insert(tk.END, "-"*50 + "\n")
+    
+    # Make the history read-only
+    history_text.config(state=tk.DISABLED)
+history_button = tk.Button(root, text="View History", command=view_history, font=("Arial", 12), bg="#7aaac2", fg="black")
+history_button.pack(pady=10)
 
 root.mainloop()
  
